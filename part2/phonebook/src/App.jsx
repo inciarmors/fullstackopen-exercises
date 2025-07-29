@@ -4,6 +4,7 @@ import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
 import Notification from './components/Notification'
 import personService from './services/personService'
+import './App.css' // Assicurati di importare gli stili
 
 const App = () => {
   const [persons, setPersons] = useState([])
@@ -80,22 +81,28 @@ const App = () => {
     : persons
 
   return (
-    <div>
-      <h2>Phonebook</h2>
-      <Notification message={message} />
-      <Filter value={filter} onChange={handleFilterChange} />
+    <div className="app-container">
+      <div className="card">
+        <h1 className="title">📞 Phonebook</h1>
+        <Notification message={message} />
+        <Filter value={filter} onChange={handleFilterChange} />
+      </div>
 
-      <h3>Add a new</h3>
-      <PersonForm
-        onSubmit={addPerson}
-        newName={newName}
-        handleNameChange={handleNameChange}
-        newNumber={newNumber}
-        handleNumberChange={handleNumberChange}
-      />
+      <div className="card">
+        <h2>Add a new</h2>
+        <PersonForm
+          onSubmit={addPerson}
+          newName={newName}
+          handleNameChange={handleNameChange}
+          newNumber={newNumber}
+          handleNumberChange={handleNumberChange}
+        />
+      </div>
 
-      <h3>Numbers</h3>
-      <Persons persons={personsToShow} handleDelete={deletePerson} />
+      <div className="card">
+        <h2>Numbers</h2>
+        <Persons persons={personsToShow} handleDelete={deletePerson} />
+      </div>
     </div>
   )
 }

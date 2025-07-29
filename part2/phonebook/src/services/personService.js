@@ -1,7 +1,8 @@
 // src/services/personService.js
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3001/persons'
+const baseUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001/api/persons'
+
 
 const getAll = () => axios.get(baseUrl).then(res => res.data)
 const create = newPerson => axios.post(baseUrl, newPerson).then(res => res.data)
