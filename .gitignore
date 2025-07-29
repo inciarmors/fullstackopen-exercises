@@ -1,9 +1,7 @@
 # Node modules (ignora ricorsivamente)
 node_modules/
 
-# Build output (es. vite)
-dist/
-.vite/
+
 
 # Env files
 .env
