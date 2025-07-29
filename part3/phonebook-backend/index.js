@@ -15,13 +15,7 @@ let persons = [
   { id: "4", name: "Mary Poppendieck", number: "39-23-6423122" }
 ]
 
-morgan.token('body', (req) => {
-  return req.method === 'POST' ? JSON.stringify(req.body) : ''
-})
-
-app.use(
-  morgan(':method :url :status :res[content-length] - :response-time ms :body')
-)
+app.use(morgan('tiny'))
 
 app.get('/api/persons', (req, res) => {
   res.json(persons)
@@ -81,7 +75,6 @@ app.post('/api/persons', (req, res) => {
 })
 
 app.use(express.static(path.join(__dirname, 'build')))
-
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
