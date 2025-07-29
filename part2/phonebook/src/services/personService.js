@@ -10,3 +10,5 @@ const update = (id, newData) => axios.put(`${baseUrl}/${id}`, newData).then(res 
 const remove = id => axios.delete(`${baseUrl}/${id}`)
 
 export default { getAll, create, update, remove }
+
+console.log("VITE_BACKEND_URL:", import.meta.env.VITE_BACKEND_URL);
