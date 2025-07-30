@@ -79,9 +79,11 @@ app.post('/api/persons', (req, res) => {
     number: body.number,
   })
 
-  person.save().then(savedPerson => {
-    res.json(savedPerson)
-  })
+  person.save()
+    .then(savedPerson => {
+      res.json(savedPerson)
+    })
+    .catch(error => next(error))
 })
 
 app.use(express.static(path.join(__dirname, 'build')))
