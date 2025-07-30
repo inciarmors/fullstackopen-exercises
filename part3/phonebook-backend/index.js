@@ -7,7 +7,7 @@ const Person = require('./models/person')
 
 
 const app = express()
-app.use(cors()) 
+app.use(cors())
 app.use(express.json())
 
 morgan.token('body', (req) => JSON.stringify(req.body))
@@ -59,7 +59,7 @@ app.put('/api/persons/:id', (req, res, next) => {
 
 app.delete('/api/persons/:id', (req, res, next) => {
   Person.findByIdAndRemove(req.params.id)
-    .then(result => {
+    .then(_result => {
       res.status(204).end()
     })
     .catch(error => next(error))
