@@ -1,7 +1,7 @@
 // src/services/personService.js
 import axios from 'axios'
 
-const baseUrl = import.meta.env.VITE_BACKEND_URL;
+const baseUrl = '/api/persons'
 
 
 const getAll = () => axios.get(baseUrl).then(res => res.data)
@@ -11,4 +11,4 @@ const remove = id => axios.delete(`${baseUrl}/${id}`)
 
 export default { getAll, create, update, remove }
 
-console.log("VITE_BACKEND_URL:", import.meta.env.VITE_BACKEND_URL);
+
